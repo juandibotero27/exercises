@@ -1,0 +1,34 @@
+{% extends 'base.html'  %}
+
+{% block content %}
+
+<h1 class="display-1">Welcome {{session["username"]}}</h1>
+
+<h2 class="display-7">Meet our users</h2>
+
+<ul>
+    <li>Username: {{user.username}}</li>
+    <li>Email: {{user.email}}</li>
+    <li>Full Name: {{user.first_name}} {{user.last_name}}</li>
+
+</ul>
+{%if user.feedback %}
+{% for feedback in user.feedback %}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{feedback.title}}</h5>
+      <p class="card-text">{{feedback.content}}</p>
+      <a href="#" class="card-link">Edit</a>
+      <a href="#" class="card-link">Delete</a>
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
+  <h3>No Feedback</h3>
+  {% endif %}
+  {% endblock %}
+
+
+ 
+
+  
